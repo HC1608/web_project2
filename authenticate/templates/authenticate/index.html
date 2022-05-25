@@ -1,0 +1,73 @@
+{% extends 'authenticate/base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+{% load static %}
+
+
+
+<!--<h1> Home page</h1>-->
+<link rel="stylesheet" href="static/css/homepage.css"/>
+
+{% if user.is_authenticated %}
+	
+{%  include 'authenticate/status.html' %}
+	<div class="row">
+		<div class="col-md-5">
+			<hr><h5><strong>&nbsp; &nbsp; &nbsp; Welcome! {{user.first_name}} {{ user.last_name}}</strong></h5><hr>
+			
+		
+			<div class="card card-body">
+				
+
+	{% comment %} Button for Creating Trips {% endcomment %}
+	<a href="create_trip/" class="btn btn-outline-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Create Trip</a><br>
+
+
+	{% comment %} Button for Viewing Created Trips {% endcomment %}
+	<a href="view_trip/" class="btn btn-outline-secondary active" role="button" data-bs-toggle="button" aria-pressed="true">View Trips</a><br>
+
+	{% comment %} Button for Viewing Reports {% endcomment %}
+	<a href="report/" class="btn btn-outline-success active" role="button" data-bs-toggle="button" aria-pressed="true">Report</a><br>
+
+
+</div>
+</div>
+
+<div class="col-md-7">
+
+
+<div class="card card-body">
+<strong><h5>  LAST 5 TRIPS</strong></h5>
+<table class="table table-sm">
+<tr>
+	<th>Product</th>
+	<th>Date Orderd</th>
+	<th>Status</th>
+	<th>Update</th>
+	<th>Remove</th>
+</tr>
+
+{% for order in orders %}
+	<tr>
+		<td>{{order.product}}</td>
+		<td>{{order.date_created}}</td>
+		<td>{{order.status}}</td>
+		<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+
+		<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+	</tr>
+{% endfor %}
+
+
+</table>
+</div>
+</div>
+
+</div>
+{% endif %}
+
+
+{% comment %} {% endblock content %} {% endcomment %}
+
+{% endblock body %}

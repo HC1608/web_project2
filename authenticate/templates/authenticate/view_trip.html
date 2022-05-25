@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create Trips</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+         <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{% block title %} {% endblock title %} | Trip Sheet Application</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}" />
+    <link rel="stylesheet" href="static/css/homepage.css"/>
+
+         <!--________________________For Toggeable tabs__________________________-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <!--________________________For Date Range________________________________-->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+      <script src="cities.js"></script> 
+
+       <!--_____________________________NAvbar for three pages__________________________-->
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index'  %}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto" style="float:right;">
+            <li class="nav-item active">
+              <a  style = "position:relative; left:13px;" class="btn btn-primary " href="{% url 'create_trip' %}"><strong>  Create Trip  </strong></a>
+            </li>
+            <li class="nav-item active">
+              <a  style = "position:relative; left:17px;" class="btn btn-primary " href="{% url 'report' %}"><strong>  View Report  </strong></a>
+            </li>
+           
+          </ul>
+          
+        </div>   
+      </nav> 
+       
+      </head>
+	  <br>
+
+	  <div class="row">
+
+	  
+	  
+	  <br>
+	  <div class="row">
+		  <div class="col">
+			  <div class="card card-body">
+	  
+				  <form method="get">
+					  {{myFilter.form}}
+	  
+				  <button class="btn btn-primary" type="submit">Search</button>
+				</form>
+	  
+			  </div>
+		  </div>
+		  
+	  </div>
+	  <br>
+	  
+	  <div class="row">
+		  <div class="col-md">
+			  <div class="card card-body">
+				  <table class="table table-sm">
+					  <tr>
+						  <th>Product</th>
+						  <th>Note</th>
+						  <th>Date Orderd</th>
+						  <th>Status</th>
+						  <th>Update</th>
+						  <th>Remove</th>
+					  </tr>
+	  
+					  {% for order in orders %}
+	  
+					  <tr>
+						  <td>{{order.product}}</td>
+						  <td>{{order.note}}</td>
+						  <td>{{order.date_created}}</td>
+						  <td>{{order.status}}</td>
+						  <td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+	  
+						  <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+					  </tr>
+					  {% endfor %}
+	  
+				  </table>
+			  </div>
+		  </div>
+	  </div>
+	  
+    <body>
+
+
+</body>
+    
+</html>
+
+
+
