@@ -1331,64 +1331,107 @@
             <div id="collapsefive" class="accordion-collapse collapse show" data-bs-parent="#myAccordion5" aria-labelledby="panelsStayOpen-headingfive">
                 <div class="card-body">
 
-            <div id="finalsummary"  class="container">
+           <div id="finalsummary"  class="container">
                 <!--Add required things here-->
-              <div class="form-row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();">
-                    <div class="form-group col-md-4">
 
-                      <div class="col-sm-4">Tot.Veh HSD <input type="number"  class="form-control-plaintext" id="total_vehicle_hsdv" style="border-bottom-color: black;" onchange="totalsummary();" readonly> </div>
-                      <div class="col-sm-3">Cost/ KM<input type="number"  class="form-control-plaintext" id="cpk_tvh"  style="border-bottom-color: black;" readonly></div>
-
-                    </div>
-
-                    <div class="form-group col-md-4">
-
-                      <div class="col-sm-4">Total AC HSD<input type="number" readonly class="form-control-plaintext" id="itachsd" style="border-bottom-color: black;" onchange="totalsummary();"></div>
-                      <div class="col-sm-3">Cost/ KM<input type="number" readonly class="form-control-plaintext" id="cpk_itachsd" style="border-bottom-color: black;"></div>
-                    </div>
-                    
-                    <div class="form-group col-md-4">
-   
-                       <div class="col-sm-4">G Total HSD<input type="number" class="form-control-plaintext" id="igtothsd" style="border-bottom-color: black;" readonly onchange="totalsummary();"></div>
-                       <div class="col-sm-3">Cost/ KM<input type="number" class="form-control-plaintext" id="igtothsd_cpk" style="border-bottom-color: black;" readonly ></div>
-
-                    </div>
-
-                    <div class="form-group col-md-4">
-
-                      <div class="col-sm-5">Total Sector Exp<input type="number" readonly class="form-control-plaintext" style="border-bottom-color: black;" id="secexpi" onchange="totalsummary();" ></div>
-                      <div class="col-sm-3">Cost/ KM<input type="number" class="form-control-plaintext" id="secexpi_cpk" style="border-bottom-color: black;" readonly ></div>
-                      
-                    
-                    </div>
-
-                    <div class="form-group col-md-4">
- 
-                      <div class="col-sm-5">Total Way Expense<input type="number" readonly class="form-control-plaintext" style="border-bottom-color: black;" id="wayexpi1" onchange="totalsummary();"></div>
-                      <div class="col-sm-3">Cost/ Km<input type="number" class="form-control-plaintext" id="wayexpi_cpk1" style="border-bottom-color: black;" readonly ></div>
-
-                    </div>
-
+                 <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" >
+                      <div class="col-sm">
+                        <label for="totvehhsd" class="col-sm-3">Tot.Veh HSD </label>
+                        <input type="number"  class="form-control col-sm-4" id="total_vehicle_hsdv"  onchange="totalsummary();" readonly>
                       </div>
-   
-            </div>
-                  <div class="form-row">
-                   <div class="form-group col-md-4" style="margin-left:30px; margin-top:20px;"> <button type="button" class="btn btn-info" onclick="totalsummary()" style="width:150px;">Calculate</button></div>
+                      <div class="col-sm">
+                        <label for="cpk_for_veh_hsd" class="col-sm-3">Cost/ KM</label>
+                        <input type="number"  class="form-control col-sm-4" id="cpk_tvh"  readonly>
+                      </div> 
+                </div>
 
-                    <div class="form-group col-md-4" style="margin-left:10px; margin-top:20px;">
 
-                         <div class="col-sm-4">G Total<input type="number" readonly class="form-control-plaintext" id="addall" style="border-bottom-color: black;"></div>
-                         <div class="col-sm-4">Cost/ KM<input type="number" class="form-control-plaintext" id="addall_cpk" style="border-bottom-color: black;"readonly ></div>
-                         
-                    </div>
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="totvehhsd" class="col-sm-3">Tot.AC HSD </label>
+                    <input type="number"  class="form-control col-sm-4" id="total_vehicle_hsdv"  onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_veh_hsd" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="cpk_tvh"  readonly>
+                  </div> 
+                </div>
 
-                    <div class="form-group col-md-4" style="margin-left:30%; margin-top:20px; padding:10px 10px; background-color:#bfe6ff; width:100%; border-radius:5px; ">
-                      <div class="col-sm-5"><strong>Customer Name<input type="text"  class="form-control-plaintext" id="customername" style="border-bottom-color: black;"></div>
-                      <div class="col-sm-4">Revenue </strong><input type="number" class="form-control-plaintext" id="addall_cpk" style="border-bottom-color: black;" required></div>
-                    </div>
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="gtotalhsd" class="col-sm-3">G Total HSD </label>
+                    <input type="number"  class="form-control col-sm-4" id="igtothsd" onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_gtotal" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="igtothsd_cpk"  readonly>
+                  </div> 
+                </div>
 
-                    </div>
 
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="totalsectorexpensel" class="col-sm-3">Total Sector Expense </label>
+                    <input type="number"  class="form-control col-sm-4" id="secexpi" onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_secexp" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="secexpi_cpk"   readonly>
+                  </div> 
+                </div>
+
+
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="totalwayexpensel" class="col-sm-3">Total Way Expense </label>
+                    <input type="number"  class="form-control col-sm-4" id="wayexpi1" onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_wayexp" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="wayexpi_cpk1"  readonly>
+                  </div> 
+                </div>
+
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="totalwayexpensel" class="col-sm-3">Grand Total</label>
+                    <input type="number"  class="form-control col-sm-4" id="addall" onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_wayexp" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="addall_cpk"  readonly>
+                  </div> 
+                </div>
+
+
+                <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                  <div class="col-sm">
+                    <label for="totalwayexpensel" class="col-sm-3">Grand Total</label>
+                    <input type="number"  class="form-control col-sm-4" id="addall" onchange="totalsummary();" readonly>
+                  </div>
+                  <div class="col-sm">
+                    <label for="cpk_for_wayexp" class="col-sm-3">Cost/ KM</label>
+                    <input type="number"  class="form-control col-sm-4" id="addall_cpk"  readonly>
+                  </div> 
+                </div>
+                
+                <hr/ style="width:80%;">
+
+              <div class="row" onload="subtract_number(); find_sec_exp(); find_way_exp(); add_state(); totalsummary();" style="margin-top:20px;">
+                <div class="col-sm">
+                  <label for="customer" class="col-sm-3">Customer </label>
+                  <input type="text"  class="form-control col-sm-4" id="customername" >
+                </div>
+                <div class="col-sm">
+                  <label for="revenue" class="col-sm-3">Revenue</label>
+                  <input type="number" class="form-control col-sm-4" id="revenue" required>
+                  
+                </div> 
+              </div>
+
+
+
+            </div><!--for container-->
             
 
    <!--Completed with 5th section-->
